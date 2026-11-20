@@ -58,6 +58,11 @@
   function explanation(round, ui) {
     return round.verdict === 'timeout' ? ui.timedOut : ui.breakdown.replace('{ai}', round.ai).replace('{human}', round.human).replace('{score}', round.score);
   }
+  function deepLink() {
+    // Directory of the current page: root and subpath deployments both work.
+    var dir = location.pathname.replace(/[^/]*$/, '');
+    return location.origin + dir + '?tool=fakeai';
+  }
   function buildResult(round, pack) {
     var ui = pack.ui, answer = Array.from(round.answer).slice(0, 100).join('') + (Array.from(round.answer).length > 100 ? '…' : '');
     // Only the card excerpt gains invisible wrap opportunities for long tokens.
@@ -66,7 +71,7 @@
     return { layout: 'compact', headline: ui.reportTitle, label: ui.score, bigText: String(round.score),
       equivText: ui.elapsed + ': ' + round.elapsed + 's', badgeText: ui[round.verdict],
       copy: round.question[CL.Config.lang()] + '\n\n' + (answer || ui.empty), note: ui.note,
-      watermarkName: pack.card.watermarkName, fileSlug: 'fakeai-report', deepLink: location.origin + '/?tool=fakeai',
+      watermarkName: pack.card.watermarkName, fileSlug: 'fakeai-report', deepLink: deepLink(),
       onExport: function () { telemetry('card_generated'); } };
   }
   async function report() {
