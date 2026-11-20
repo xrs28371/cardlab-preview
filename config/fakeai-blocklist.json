@@ -1,0 +1,6 @@
+{
+  "patterns": [
+    "\\b(?:fuck|fucking|shit|bitch|asshole|idiot)\\b",
+    "傻逼|傻屄|操你|草你妈|去死|废物"
+  ]
+}

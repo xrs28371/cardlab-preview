@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CardLab · X Value Calculator</title>
+<meta name="description" content="Cards worth screenshotting. No sign-in, no authorization, none of your data stored.">
+<!-- 社交分享预览：与 /b/、/v/ 落地页同一套字段（那两页由 Worker 按
+     请求源拼绝对地址；静态首页在部署域名确定后把 og:image 换成绝对
+     地址即可）。og.png 为本站首页 1200×630 预览图。 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CardLab">
+<meta property="og:title" content="CardLab · X Value Calculator">
+<meta property="og:description" content="Cards worth screenshotting. No sign-in, no authorization, none of your data stored.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:image:alt" content="CardLab · X Value Calculator — cards worth screenshotting">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CardLab · X Value Calculator">
+<meta name="twitter:description" content="Cards worth screenshotting. No sign-in, no authorization, none of your data stored.">
+<meta name="twitter:image" content="assets/og.png">
+<meta name="theme-color" content="#F8FAF6">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/tools.css">
+<link rel="stylesheet" href="assets/css/card.css">
+<link rel="stylesheet" href="assets/css/vote.css">
+<link rel="stylesheet" href="assets/css/bouquet.css">
+<link rel="stylesheet" href="assets/css/fakeai.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="bg-grid"></div><div class="bg-glow g1"></div><div class="bg-glow g2"></div></div>
+<button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+
+<!-- ===== 视图：工具矩阵首页（全部由 config/tools.json 渲染） ===== -->
+<main id="view-home" class="view">
+  <header class="hero">
+    <div class="brand">
+      <span class="brand-tile">▣</span>
+      <span class="brand-name" id="site-name">CardLab</span>
+      <span class="brand-en" id="site-name-en">CARDLAB</span>
+    </div>
+    <h1 class="hero-title" id="site-slogan">We only make cards worth screenshotting and sharing</h1>
+    <p class="trust"><span class="trust-dot"></span><span id="site-trust">No sign-up · No login · Nothing about you is stored</span></p>
+  </header>
+  <section id="tool-grid" class="tool-grid"></section>
+  <section class="income" id="income-block">
+    <h3 class="income-title" id="income-title">Want reward points and passive income?</h3>
+    <p class="income-text" id="income-text">The basics here — creating, valuing, and sharing cards — are available without registration. If you wish to earn EW/ART reward points, or generate passive income through daily tasks on earnway.art, you must register on the platform; identity verification (KYC) is required for withdrawals. This integration is an optional value-add and does not interfere with the core experience.</p>
+    <div class="ref-box" id="ref-box">
+      <p class="ref-label" id="ref-label">Referrer</p>
+      <div class="ref-toggle" role="group">
+        <button type="button" class="ref-opt" id="ref-yes" aria-pressed="false">I have a referrer</button>
+        <button type="button" class="ref-opt active" id="ref-no" aria-pressed="true">No referrer</button>
+      </div>
+      <div class="ref-fields hidden" id="ref-fields">
+        <input id="ref-input" type="text" placeholder="Referral code or referrer's link" maxlength="500" autocomplete="off">
+        <p class="ref-hint hidden" id="ref-hint"></p>
+        <p class="ref-note" id="ref-note">Share this link. When someone registers and tops up EW, you earn automatically.</p>
+        <p class="ref-commission hidden" id="ref-commission"></p>
+      </div>
+    </div>
+    <a class="income-btn" id="income-btn" href="https://earnway.art" target="_blank" rel="noopener">Go to earnway.art →</a>
+    <a class="income-blog" id="income-blog" href="https://earnway.art/blog/generating-ad-revenue-google-trending-keywords-earnway-art" target="_blank" rel="noopener">Core business: generating ad revenue with trending keywords</a>
+  </section>
+  <footer class="home-foot" id="home-foot">One input · One result · One card. That's it.</footer>
+</main>
+
+<!-- ===== 视图：单输入型工具页（工具①） ===== -->
+<main id="view-tool-single" class="view hidden">
+  <button class="back" data-back aria-label="Back">‹</button>
+  <header class="tool-head">
+    <p class="tool-no" id="single-no">Tool 01 · Launch</p>
+    <h2 class="tool-title" id="single-title">X Value Calculator</h2>
+    <p class="tool-desc" id="single-desc">Type in a username — see what it's worth in cups of coffee</p>
+  </header>
+  <form id="value-form" class="value-form" autocomplete="off">
+    <div class="input-wrap">
+      <span class="at">@</span>
+      <input id="handle-input" type="text" placeholder="Enter a username" maxlength="30" inputmode="text">
+    </div>
+    <p class="form-error hidden" id="form-error">Enter a username first — anyone's will do</p>
+    <button type="submit" class="cta" id="single-cta">Calculate value</button>
+  </form>
+  <div class="ref-mount" id="single-ref-mount"></div>
+  <p class="trust trust-center"><span class="trust-dot"></span><span id="single-trust">No sign-up · No login · Your username is never stored</span></p>
+  <p class="fineprint" id="single-fineprint">The valuation formula is completely made up. Just for fun.</p>
+</main>
+
+<!-- ===== 视图：问答型工具页（工具②） ===== -->
+<main id="view-tool-quiz" class="view hidden">
+  <button class="back" data-back aria-label="Back">‹</button>
+  <header class="tool-head">
+    <p class="tool-no" id="quiz-no">Tool 02 · Launch</p>
+    <h2 class="tool-title" id="quiz-title">Career Personality Roast</h2>
+    <p class="tool-desc" id="quiz-desc">10 either-or questions that reveal your work persona</p>
+  </header>
+  <p class="quiz-progress" id="quiz-progress"></p>
+  <div class="quiz-bar"><div class="quiz-bar-fill" id="quiz-bar-fill"></div></div>
+  <p class="quiz-q" id="quiz-q"></p>
+  <div class="quiz-opts" id="quiz-opts">
+    <button type="button" class="quiz-opt" id="quiz-opt-0"></button>
+    <button type="button" class="quiz-opt" id="quiz-opt-1"></button>
+  </div>
+  <div class="ref-mount" id="quiz-ref-mount"></div>
+  <p class="trust trust-center"><span class="trust-dot"></span><span id="quiz-trust"></span></p>
+  <p class="fineprint" id="quiz-fineprint"></p>
+</main>
+
+<!-- ===== 视图：表态型工具页（工具③） ===== -->
+<main id="view-tool-stance" class="view hidden">
+  <button class="back" data-back aria-label="Back">‹</button>
+  <header class="tool-head">
+    <p class="tool-no" id="stance-no">Tool 03 · Launch</p>
+    <h2 class="tool-title" id="stance-title">Hot Take Machine</h2>
+    <p class="tool-desc" id="stance-desc">When something trends, tap to pick a side and get your card</p>
+  </header>
+  <p class="stance-q" id="stance-q"></p>
+  <div class="stance-opts" id="stance-opts"></div>
+  <p class="stance-note hidden" id="stance-note"></p>
+  <button type="button" class="cta hidden" id="stance-view-card">See my card</button>
+  <div class="ref-mount" id="stance-ref-mount"></div>
+  <p class="trust trust-center"><span class="trust-dot"></span><span id="stance-trust"></span></p>
+  <p class="fineprint" id="stance-fineprint"></p>
+</main>
+
+<!-- ===== 视图：筹备中工具页（工具⑥配置骨架） ===== -->
+<main id="view-tool-soon" class="view hidden">
+  <button class="back" data-back aria-label="Back">‹</button>
+  <header class="tool-head">
+    <p class="tool-no" id="soon-no">Tool 06 · Review-gated</p>
+    <h2 class="tool-title" id="soon-title">Human Pretending to Be AI</h2>
+    <p class="tool-desc" id="soon-desc">Real humans, timed answers — see who can pass as a bot</p>
+  </header>
+  <div class="soon-box">
+    <p class="soon-notice" id="soon-notice"></p>
+    <p class="soon-plan-title" id="soon-plan-title"></p>
+    <ul class="soon-list" id="soon-list"></ul>
+  </div>
+  <p class="trust trust-center"><span class="trust-dot"></span><span id="soon-trust"></span></p>
+  <p class="fineprint" id="soon-fineprint"></p>
+</main>
+
+<!-- ===== 分析中遮罩（步骤文案与时长均来自 pack 配置） ===== -->
+<div id="analysis" class="analysis hidden">
+  <div class="analysis-box">
+    <div class="spinner"></div>
+    <p id="analysis-text">Calculating your worth…</p>
+    <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+  </div>
+</div>
+
+<!-- ===== 视图：结果卡片（9:16，渲染器通用模板，内容由结果对象驱动） ===== -->
+<main id="view-tool-fakeai" class="view hidden">
+<button class="back" data-back>‹</button>
+<div class="tool-head"><p class="tool-no">Tool 06</p><h1 class="tool-title" id="fakeai-title"></h1><p class="tool-desc" id="fakeai-desc"></p></div>
+<div id="fakeai-body"></div><p id="fakeai-status" role="status" aria-live="polite"></p><p id="fakeai-warning"></p><div id="fakeai-ref-mount"></div>
+</main>
+<main id="view-tool-bouquet" class="view hidden">
+<button class="back" data-back>‹</button><h1 id="bouquet-title"></h1><p id="bouquet-desc"></p><p id="bouquet-trust" class="trust"></p><div id="bouquet-body"></div><p id="bouquet-status" role="status" aria-live="polite"></p><div id="bouquet-ref-mount"></div>
+</main>
+<main id="view-tool-vote" class="view hidden">
+  <button class="back" data-back aria-label="Back">‹</button>
+  <h1 id="vote-title"></h1><p id="vote-desc"></p>
+  <p id="vote-trust" class="trust"></p><p id="vote-fineprint"></p>
+  <div id="vote-body"></div>
+  <p id="vote-status" role="status" aria-live="polite"></p>
+  <div id="vote-ref-mount"></div>
+</main>
+<main id="view-card" class="view hidden">
+  <div class="card-scale-wrap">
+    <div id="card" class="card">
+      <div class="card-glows" aria-hidden="true"><div class="card-glow cg1"></div><div class="card-glow cg2"></div></div>
+      <div class="card-inner">
+        <div class="card-top">
+          <span class="card-tool" id="card-tool-name">X Value Calculator</span>
+          <span class="card-brand" id="card-brand">▣ CardLab</span>
+        </div>
+        <p class="card-handle" id="card-headline">@username</p>
+        <div class="card-stage">
+          <div class="value-glow"></div>
+          <p class="card-label" id="card-label">ESTIMATED WORTH</p>
+          <p class="card-value" id="card-big">$0</p>
+          <p class="card-equiv"><span id="card-equiv">≈ 0 cups of coffee</span></p>
+        </div>
+        <p class="card-tier"><span id="card-badge">Cyber Passerby</span></p>
+        <div class="card-extra hidden" id="card-extra"></div>
+        <div class="card-copy-wrap"><p class="card-copy" id="card-copy">Net worth: pocket change. Opinions on world affairs: priceless.</p></div>
+        <div class="card-divider"></div>
+        <div class="card-ref hidden" id="card-ref">
+          <span class="card-ref-label" id="card-ref-label">Join via my link:</span>
+          <span class="card-ref-url" id="card-ref-url"></span>
+        </div>
+        <p class="card-qr-error hidden" id="card-qr-error"></p>
+        <div class="card-bottom">
+          <div class="card-watermark">
+            <p class="wm-name" id="card-wm-name">CardLab CARDLAB</p>
+            <p class="wm-link" id="card-link">cardlab</p>
+            <p class="wm-note" id="card-wm-note">Made-up numbers · Just for fun</p>
+          </div>
+          <div class="card-qr" id="card-qr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="cta cta-save" id="btn-save">Save image</button>
+  <button class="quiet-link" id="btn-again">‹ Test another</button>
+</main>
+
+<!-- ===== 保存结果浮层：移动端长按保存 ===== -->
+<div id="save-overlay" class="save-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="save-hint">
+  <button class="save-close" id="btn-save-close" aria-label="Close">×</button>
+  <img id="save-img" alt="Result card">
+  <a id="save-open" class="save-open hidden" target="_blank" rel="noopener">Open full image to save</a>
+  <p class="save-hint" id="save-hint">Long-press the image to save it</p>
+</div>
+
+<script src="assets/vendor/html2canvas.min.js"></script>
+<script src="assets/vendor/qrcode.min.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/registry.js"></script>
+<script src="assets/js/fallbacks.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/referral.js"></script>
+<script src="assets/js/card.js"></script>
+<script src="assets/js/views/home.js"></script>
+<!-- 引擎与工具视图不再这里逐个列 script 标签：启动时由
+     assets/js/registry.js 按 config/tools(.en).json 的 engine / view
+     字段动态加载（见 registry.js 顶注）。 -->
+<script src="assets/js/app.js"></script>
+</body>
+</html>

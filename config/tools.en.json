@@ -1,0 +1,101 @@
+{
+  "site": {
+    "name": "CardLab",
+    "nameEn": "CARDLAB",
+    "slogan": "We only make cards worth screenshotting and sharing",
+    "trustLine": "No sign-up · No login · Nothing about you is stored"
+  },
+  "tools": [
+    {
+      "batch": "Launch",
+      "cta": "Calculate value",
+      "desc": "Type in a username — see what it's worth in cups of coffee",
+      "fineprint": "The valuation formula is completely made up. Just for fun.",
+      "id": "x-value",
+      "inputPlaceholder": "Enter a username",
+      "name": "X Value Calculator",
+      "no": "01",
+      "pack": "config/packs/valuation.en.json",
+      "status": "live",
+      "template": "x-value",
+      "trustLine": "No sign-up · No login · Your username is never stored",
+      "engine": "assets/js/engines/x-value.js",
+      "view": "single"
+    },
+    {
+      "batch": "Launch",
+      "cta": "Start the test",
+      "desc": "10 either-or questions that reveal your work persona",
+      "fineprint": "Pure fun — don't take it seriously.",
+      "id": "career-test",
+      "name": "Career Personality Roast",
+      "no": "02",
+      "pack": "config/packs/career-test.en.json",
+      "status": "live",
+      "template": "career-test",
+      "trustLine": "No sign-up · No login · Your answers are never stored",
+      "engine": "assets/js/engines/career-test.js",
+      "view": "quiz"
+    },
+    {
+      "batch": "Launch",
+      "cta": "Pick a side",
+      "desc": "When something trends, tap to pick a side and get your card",
+      "fineprint": "Stances here represent netizens having fun — not a real poll.",
+      "id": "stance",
+      "name": "Hot Take Machine",
+      "no": "03",
+      "pack": "config/packs/stance.en.json",
+      "status": "live",
+      "template": "stance",
+      "trustLine": "No sign-up · No login · Tap to vote",
+      "engine": "assets/js/engines/stance.js",
+      "view": "stance"
+    },
+    {
+      "batch": "Wave 2",
+      "desc": "Settle the argument your group chat can't — one vote decides",
+      "id": "vote",
+      "name": "Group chat vote ender",
+      "no": "04",
+      "pack": "config/packs/vote.en.json",
+      "status": "live",
+      "template": "vote",
+      "engine": "assets/js/engines/vote.js",
+      "view": "vote",
+      "cta": "Create vote",
+      "trustLine": "No login · One vote per device",
+      "fineprint": "Live totals may be delayed."
+    },
+    {
+      "batch": "Wave 2",
+      "desc": "Choose flowers and send a little kindness",
+      "id": "bouquet",
+      "name": "Digital Bouquet",
+      "no": "05",
+      "pack": "config/packs/bouquet.en.json",
+      "status": "live",
+      "template": "bouquet",
+      "engine": "assets/js/engines/bouquet.js",
+      "view": "bouquet",
+      "cta": "Create bouquet",
+      "trustLine": "No login needed",
+      "fineprint": "Anyone with the link can read these names and message."
+    },
+    {
+      "batch": "Wave two",
+      "desc": "Real humans, timed answers — see who can pass as a bot",
+      "fineprint": "A rule-based joke for fun, not an AI detector.",
+      "id": "fakeai",
+      "name": "Human Pretending to Be AI",
+      "no": "06",
+      "pack": "config/packs/fakeai.en.json",
+      "status": "live",
+      "template": "fakeai",
+      "trustLine": "Client only · answers never uploaded",
+      "engine": "assets/js/engines/fakeai.js",
+      "view": "fakeai",
+      "cta": "Start pretending"
+    }
+  ]
+}

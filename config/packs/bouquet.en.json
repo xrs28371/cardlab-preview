@@ -1,0 +1,36 @@
+{
+  "tool": "bouquet",
+  "stylesPack": "config/bouquet-styles.json",
+  "blocklistPack": "config/bouquet-blocklist.json",
+  "ui": {
+    "sender": "From",
+    "recipient": "To",
+    "note": "Your message",
+    "style": "Choose flowers",
+    "create": "Create bouquet",
+    "share": "Your bouquet is ready to share",
+    "copy": "Copy",
+    "copied": "Copied",
+    "export": "Make keepsake card",
+    "cta": "I want to send a bouquet too",
+    "skip": "Skip opening",
+    "loading": "Loading…",
+    "error": "Could not reach the bouquet service. Please retry.",
+    "notFound": "This bouquet does not exist or the link is invalid.",
+    "invalid": "Use 1–24 characters for names and 1–60 for your message.",
+    "blocked": "Please use kind words for your bouquet.",
+    "rateLimited": "Too many bouquets created. Please try again shortly.",
+    "retry": "Retry",
+    "privacy": "Anyone with the link can read these names and message.",
+    "inputError": "The bouquet input is invalid. Please check your names and message.",
+    "tooLarge": "This request is too large. Please shorten it and retry.",
+    "unsupported": "This request is not supported.",
+    "unavailable": "The bouquet service is temporarily unavailable. Please retry.",
+    "makeAnother": "Create another bouquet"
+  },
+  "card": {
+    "label": "A bouquet for you",
+    "watermarkName": "CARDLAB",
+    "note": "Flowers to keep"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool",
+    "ui",
+    "card",
+    "stylesPack",
+    "blocklistPack"
+  ],
+  "properties": {
+    "tool": {
+      "const": "bouquet"
+    },
+    "stylesPack": {
+      "const": "config/bouquet-styles.json"
+    },
+    "blocklistPack": {
+      "const": "config/bouquet-blocklist.json"
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sender",
+        "recipient",
+        "note",
+        "style",
+        "create",
+        "share",
+        "copy",
+        "copied",
+        "export",
+        "cta",
+        "skip",
+        "loading",
+        "error",
+        "notFound",
+        "invalid",
+        "blocked",
+        "rateLimited",
+        "retry",
+        "privacy",
+        "inputError",
+        "tooLarge",
+        "unsupported",
+        "unavailable",
+        "makeAnother"
+      ],
+      "properties": {
+        "sender": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipient": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "style": {
+          "type": "string",
+          "minLength": 1
+        },
+        "create": {
+          "type": "string",
+          "minLength": 1
+        },
+        "share": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copied": {
+          "type": "string",
+          "minLength": 1
+        },
+        "export": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cta": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skip": {
+          "type": "string",
+          "minLength": 1
+        },
+        "loading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notFound": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invalid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocked": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rateLimited": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputError": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tooLarge": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unsupported": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unavailable": {
+          "type": "string",
+          "minLength": 1
+        },
+        "makeAnother": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "watermarkName",
+        "note"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "watermarkName": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

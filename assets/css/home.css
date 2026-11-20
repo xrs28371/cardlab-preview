@@ -1,0 +1,63 @@
+/* CardLab 生产版 · home：首页（品牌、工具矩阵、被动收入区与推荐人） */
+
+/* 被动收入说明区（v3 新增，首页工具矩阵下方） */
+.income{position:relative;isolation:isolate;overflow:hidden;margin-top:26px;border:1px solid transparent;background:linear-gradient(150deg,rgba(201,228,197,.65),rgba(255,255,255,.35) 50%,rgba(234,244,232,.7)) padding-box,linear-gradient(var(--base),var(--base)) padding-box,linear-gradient(135deg,#8FBF88,rgba(220,232,217,.9) 48%,#C9E4C5) border-box;border-radius:20px;padding:22px 20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 22px 48px -26px rgba(49,92,59,.4);animation:viewIn .5s var(--ease) .28s backwards}
+.income::before{content:"";position:absolute;left:22px;right:22px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);pointer-events:none}
+.income::after{content:"";position:absolute;z-index:-1;width:220px;height:220px;top:-110px;right:-70px;border-radius:50%;background:radial-gradient(closest-side,rgba(143,191,136,.45),rgba(201,228,197,.3),transparent);filter:blur(10px);pointer-events:none}
+.income-title{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;letter-spacing:.5px;line-height:1.35}
+.income-title::before{content:"";width:4px;height:18px;border-radius:4px;background:linear-gradient(180deg,#315C3B,#8FBF88);box-shadow:0 0 10px rgba(143,191,136,.55);flex:none}
+.income-text{margin-top:10px;font-size:14px;line-height:1.7;color:var(--dim)}
+/* 推荐人选择（v4 新增，收入块内、主按钮上方） */
+.ref-box{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.ref-label{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--dim);text-transform:uppercase}
+.ref-toggle{display:flex;gap:8px;margin-top:10px}
+.ref-opt{flex:1;min-height:44px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--dim);background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:12px;padding:10px 8px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.6);transition:color .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease,transform .15s var(--ease)}
+.ref-opt:active{transform:scale(.98)}
+.ref-opt.active{color:var(--txt);border-color:#315C3B;background:linear-gradient(150deg,#C9E4C5,rgba(234,244,232,.7));box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 6px 18px -10px rgba(49,92,59,.45)}
+.ref-fields{margin-top:12px;animation:viewIn .35s var(--ease)}
+.ref-fields input{width:100%;font-family:inherit;font-size:16px;color:var(--txt);background:#ffffff;border:1px solid var(--line-hi);border-radius:12px;padding:12px 14px;outline:none;box-shadow:inset 0 1px 2px rgba(32,59,41,.06);transition:border-color .18s ease,box-shadow .18s ease}
+.ref-fields input::placeholder{color:var(--dim2)}
+.ref-fields input:focus{border-color:#315C3B;box-shadow:inset 0 1px 2px rgba(32,59,41,.04),0 0 0 3px rgba(143,191,136,.35)}
+.ref-note{margin-top:9px;font-size:12.5px;line-height:1.6;color:var(--dim)}
+.ref-commission{margin-top:4px;font-size:12.5px;line-height:1.6;color:#315C3B}
+.income-btn{position:relative;overflow:hidden;display:inline-block;margin-top:16px;font-size:14px;line-height:18px;font-weight:700;letter-spacing:.3px;color:#203B29;background:linear-gradient(92deg,#C9E4C5,#8FBF88);padding:13px 20px;border-radius:12px;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 10px 26px -10px rgba(143,191,136,.6),0 4px 14px -8px rgba(49,92,59,.35);transition:transform .18s var(--ease),box-shadow .2s ease,filter .2s ease}
+.income-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease;pointer-events:none}
+.income-btn:active{transform:scale(.98)}
+.income-blog{display:block;margin-top:16px;padding:14px 0 11px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:#315C3B;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color .2s ease,text-decoration-color .2s ease,opacity .2s ease}
+.income-blog:active{opacity:.7}
+/* 首页 */
+.brand{display:flex;align-items:center;gap:10px}
+.brand-tile{width:34px;height:34px;border-radius:10px;background:var(--sheen),#315C3B;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(32,59,41,.12),0 8px 18px -8px rgba(49,92,59,.55)}
+.brand-name{font-size:19px;font-weight:700;letter-spacing:.5px}
+.brand-en{font-size:11px;letter-spacing:3px;color:var(--dim);border:1px solid var(--line);background:rgba(255,255,255,.6);padding:3px 8px;border-radius:99px;box-shadow:var(--hl)}
+.hero-title{font-size:35px;line-height:1.28;font-weight:800;letter-spacing:.5px;margin:26px 0 14px;max-width:10em;background:linear-gradient(180deg,#203B29 30%,#315C3B 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-wrap:balance}
+.tool-grid{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+.tool-card{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:18px;cursor:pointer;color:var(--txt);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:var(--hl),var(--lift),var(--drop);transition:transform .22s var(--ease),border-color .22s ease,box-shadow .22s ease,background .22s ease;font-family:inherit}
+.tool-card.live{border:1px solid transparent;background:linear-gradient(135deg,rgba(201,228,197,.55),rgba(234,244,232,.4)) padding-box,linear-gradient(var(--base),var(--base)) padding-box,var(--grad) border-box;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),var(--lift),0 20px 44px -22px rgba(49,92,59,.35)}
+.tool-no-badge{font-size:12px;font-weight:700;color:var(--dim);letter-spacing:1px;border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:10px;padding:7px 8px;flex:none;box-shadow:var(--hl)}
+.tool-card.live .tool-no-badge{color:#fff;border-color:transparent;background:var(--sheen),#315C3B;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 16px -6px rgba(49,92,59,.45)}
+.tool-main{flex:1;min-width:0}
+.tool-name{display:block;font-size:17px;font-weight:700}
+.tool-desc{display:block;font-size:13px;color:var(--dim);margin-top:3px;line-height:1.45}
+.tool-tag{flex:none;font-size:11.5px;color:var(--dim);border:1px solid var(--line);background:rgba(255,255,255,.55);padding:5px 10px;border-radius:99px;white-space:nowrap}
+.tool-tag.live{color:#203B29;background:#C9E4C5;border:none;font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 4px 14px -4px rgba(143,191,136,.55)}
+.tool-card.off{opacity:.55;cursor:default;box-shadow:var(--hl)}
+.tool-card.featured{padding:24px 20px}
+.tool-card.featured .tool-name{font-size:20.5px;font-weight:800;letter-spacing:.3px}
+.tool-card.featured .tool-desc{font-size:14px;margin-top:5px}
+.tool-card.featured .tool-no-badge{padding:10px 9px;font-size:13px}
+.home-foot{margin-top:30px;padding-top:20px;text-align:center;color:var(--dim);font-size:12.5px;letter-spacing:1px;background:linear-gradient(90deg,transparent,rgba(49,92,59,.16),transparent) top center/70% 1px no-repeat}
+.tool-grid .tool-card{animation:viewIn .48s var(--ease) backwards}
+.tool-grid .tool-card:nth-child(2){animation-delay:.05s}
+.tool-grid .tool-card:nth-child(3){animation-delay:.1s}
+.tool-grid .tool-card:nth-child(4){animation-delay:.15s}
+.tool-grid .tool-card:nth-child(5){animation-delay:.2s}
+.tool-grid .tool-card:nth-child(6){animation-delay:.25s}
+.tool-card:active{transform:scale(.985)}
+.tool-card.off:active{transform:none}
+
+/* M1 新增：skeleton（配置就绪、上线闸门未过）工具卡——可点进筹备页 */
+.tool-card.skeleton{cursor:pointer;opacity:.75}
+.tool-card.skeleton:active{transform:scale(.985)}
+/* 短链接提示：像链接却抽不到推荐码时在输入框旁亮起，不许静默失效 */
+.ref-hint{margin-top:9px;font-size:12.5px;line-height:1.6;color:#9a6a00}

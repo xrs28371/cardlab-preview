@@ -1,0 +1,112 @@
+{
+ "$id": "pack-fake-ai.schema.json",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "tool",
+  "status",
+  "countdownSec",
+  "questionMaxLen",
+  "answerMaxLen",
+  "roundsPerSession",
+  "moderation",
+  "launchGates",
+  "card"
+ ],
+ "properties": {
+  "tool": {
+   "const": "fake-ai"
+  },
+  "status": {
+   "const": "skeleton"
+  },
+  "countdownSec": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "questionMaxLen": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "answerMaxLen": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "roundsPerSession": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "moderation": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "keywordFilter",
+    "reportButton",
+    "banWarning",
+    "blocklistPack"
+   ],
+   "properties": {
+    "keywordFilter": {
+     "enum": [
+      "required-before-launch",
+      "configured"
+     ]
+    },
+    "reportButton": {
+     "enum": [
+      "required-before-launch",
+      "configured"
+     ]
+    },
+    "banWarning": {
+     "enum": [
+      "required-before-launch",
+      "configured"
+     ]
+    },
+    "blocklistPack": {
+     "type": "string",
+     "pattern": "^config/packs/[A-Za-z0-9._-]+\\.json$"
+    }
+   }
+  },
+  "launchGates": {
+   "type": "array",
+   "minItems": 3,
+   "items": {
+    "enum": [
+     "keyword-filter",
+     "report-button",
+     "ban-warning"
+    ]
+   }
+  },
+  "card": {
+   "$ref": "#/$defs/card"
+  }
+ },
+ "$defs": {
+  "card": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "label",
+    "watermarkName",
+    "note"
+   ],
+   "properties": {
+    "label": {
+     "type": "string",
+     "minLength": 1
+    },
+    "watermarkName": {
+     "type": "string",
+     "minLength": 1
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "tool": "bouquet",
+  "stylesPack": "config/bouquet-styles.json",
+  "blocklistPack": "config/bouquet-blocklist.json",
+  "ui": {
+    "sender": "寄件人",
+    "recipient": "收件人",
+    "note": "留言",
+    "style": "选择花型",
+    "create": "创建花束",
+    "share": "花束已准备好，分享给收件人",
+    "copy": "复制",
+    "copied": "已复制",
+    "export": "制作纪念卡",
+    "cta": "我也想送一束",
+    "skip": "跳过拆封",
+    "loading": "加载中…",
+    "error": "无法连接花束服务，请重试。",
+    "notFound": "花束不存在或链接无效",
+    "invalid": "昵称请输入 1–24 字，留言请输入 1–60 字。",
+    "blocked": "请换成友善的表达，再送出花束。",
+    "rateLimited": "创建太频繁了，请稍后再试。",
+    "retry": "重试",
+    "privacy": "持有链接的人均可阅读昵称与留言。",
+    "inputError": "花束内容无效，请检查姓名和留言。",
+    "tooLarge": "请求内容过大，请缩短后重试。",
+    "unsupported": "不支持此请求。",
+    "unavailable": "花束服务暂时不可用，请稍后重试。",
+    "makeAnother": "再创建一束花"
+  },
+  "card": {
+    "label": "数字花束",
+    "watermarkName": "CARDLAB",
+    "note": "一束不会凋谢的心意"
+  }
+}

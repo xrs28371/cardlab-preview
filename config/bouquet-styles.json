@@ -1,0 +1,23 @@
+{
+  "source": "Tyagraj M2 v1.2 §4.2 / bouquet style allowlist",
+  "styles": [
+    {
+      "id": "vintage_rose",
+      "zh": "复古玫瑰",
+      "en": "Vintage rose",
+      "color": "#B84C65"
+    },
+    {
+      "id": "sunny_sunflower",
+      "zh": "向日葵",
+      "en": "Sunny sunflower",
+      "color": "#E4AF27"
+    },
+    {
+      "id": "spring_tulip",
+      "zh": "春日郁金香",
+      "en": "Spring tulip",
+      "color": "#C66E92"
+    }
+  ]
+}

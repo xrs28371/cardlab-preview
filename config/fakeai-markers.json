@@ -1,0 +1,30 @@
+{
+  "ai": [
+    "\\bas an ai\\b",
+    "\\bas a language model\\b",
+    "作为一个\\s*(?:ai|语言模型)",
+    "\\bcertainly\\b",
+    "我无法",
+    "\\bi cannot\\b",
+    "总之",
+    "\\bin conclusion\\b",
+    "首先",
+    "\\bfirstly\\b",
+    "没有个人感受",
+    "\\bno personal feelings\\b"
+  ],
+  "human": [
+    "我觉得",
+    "我感觉",
+    "我好开心",
+    "笑死",
+    "哈哈",
+    "绝绝子",
+    "\\bi feel\\b",
+    "\\bi love\\b",
+    "\\blol\\b",
+    "\\bomg\\b",
+    "\\blmao\\b",
+    "😭|😂"
+  ]
+}

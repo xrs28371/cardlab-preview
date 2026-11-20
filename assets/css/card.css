@@ -1,0 +1,148 @@
+/* CardLab 生产版 · card：9:16 结果卡片渲染器（几何与演示版一致：540×960，导出 scale=2） */
+
+/* 语言胶囊固定在右上角（top 14px + 高 44px，下沿 58px）：只在窄屏
+   （max-width:560px）把卡片视图顶部留白加到 60px，让卡片上沿（66px
+   起）躲开胶囊，390px/360px 下不再压卡（M1 P1）。断点 560px 由几何
+   探针实测定：重叠在约 524px 消失，560px 留余量。宽屏胶囊与卡片
+   横向不重叠，留白恢复 .view 的 28px，卡片不白白缩小。
+   fitCard 的高度预算只在窄屏 +32px（见 card.js）。窄屏 padding
+   跟随药丸的 safe-area 顶 inset（药丸自身已加
+   env(safe-area-inset-top)，见 base.css .lang-toggle）。 */
+@media (max-width:560px){#view-card{padding-top:calc(60px + env(safe-area-inset-top,0px))}}
+
+/* 结果卡片 540×960（9:16），导出时 scale=2 → 1080×1920 —— 仅调色/阴影，几何不动 */
+.card-scale-wrap{position:relative;width:100%;max-width:430px;margin:6px auto 0}
+/* 美化：底色自上而下多一档加深，压住页脚；屏幕端补外投影（导出端由 export-flat 去掉） */
+.card{position:relative;width:540px;height:960px;transform-origin:top left;border-radius:36px;overflow:hidden;background:radial-gradient(120% 90% at 85% -10%,rgba(143,191,136,.42) 0%,transparent 55%),radial-gradient(110% 80% at -10% 100%,rgba(201,228,197,.85) 0%,transparent 55%),linear-gradient(168deg,#FBFCF9 0%,#F2F8F0 38%,#EAF4E8 72%,#E3F0E0 100%);border:1px solid #DCE8D9;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 6px rgba(32,59,41,.06),0 28px 56px -28px rgba(32,59,41,.32);color:#203B29}
+.card::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");opacity:.05;pointer-events:none}
+/* 光晕不用 filter:blur：html2canvas 不支持 filter，导出会把柔光圆斑
+   渲成硬边实心圆。改由 .cg1/.cg2 自身的径向渐变画衰减（base.css），
+   屏幕与导出走同一套图层，导出即所见。 */
+.card-glow{position:absolute;border-radius:50%;pointer-events:none}
+/* 导出克隆专用：噪点层是高熵纹理，5% 不透明度几乎不可见，却让 PNG
+   体积近乎翻倍（实测 2.38MB → 1.29MB）。导出时给克隆加此 class 去掉
+   噪点，屏幕显示不动，渐变与光晕与屏幕完全一致。 */
+.card.export-flat::after{display:none}
+/* 同理：html2canvas 对带模糊/负扩散的外阴影渲染会糊进元素内部
+   （浅色主题下徽章/胶囊/文案框里出现假横带，实测定位），导出克隆
+   一律去掉卡内元素的 box-shadow，屏幕显示不动。 */
+.card.export-flat *{box-shadow:none!important}
+/* 卡片本体同理：主 .card 的 inset 高光只留屏幕端，导出克隆去掉。 */
+.card.export-flat{box-shadow:none!important}
+/* html2canvas 合成径向渐变比浏览器偏浓，导出克隆里把大字光晕
+   压回与屏幕观感一致的强度（实测对比后定版）。 */
+.card.export-flat .value-glow{opacity:.6}
+.card.export-flat .card-value{text-shadow:0 1px 0 rgba(255,255,255,.65),0 12px 42px rgba(49,92,59,.13)}
+.card-inner{position:relative;padding:52px 48px 44px;height:100%;display:flex;flex-direction:column}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-size:19px}
+.card-tool{font-weight:700;letter-spacing:2px;color:#315C3B}
+/* 复核修正（PR #4 R2-1）：原 #536358 在卡顶右上径向绿＋.cg1 泛光叠加处对比度不够，改主题实色 #315C3B（--vio）——实测（无头 Chrome 渲染截图，文字透明后在字形位置采样背景像素，取最差值口径）：最差 4.67:1、中位 4.82:1，过 AA */
+.card-brand{color:#315C3B;font-size:17px;letter-spacing:1px}
+/* 美化：绿色泛光改为压印式白色高光 + 极轻落影，干净不发糊 */
+.card-handle{margin-top:52px;font-size:31px;font-weight:700;color:#315C3B;word-break:break-all;text-shadow:0 1px 0 rgba(255,255,255,.7),0 6px 18px rgba(49,92,59,.14)}
+.card-stage{position:relative;margin-top:26px;padding:30px 0 26px}
+/* 美化：标签改为主色小号字距的 eyebrow，与昵称/大字拉开层级 */
+/* 复核修正：eyebrow 半透明主色对比度掉到 3.74:1，改实色 #315C3B——实测（同 .card-brand 口径：字形下最差像素采样）最差 5.69:1、中位 6.76:1，过 AA */
+.card-label{position:relative;font-size:19px;font-weight:600;letter-spacing:5px;color:#315C3B}
+.card-value{position:relative;margin-top:12px;font-size:160px;font-weight:800;line-height:1.04;letter-spacing:-1px;white-space:nowrap;font-variant-numeric:tabular-nums;text-shadow:0 1px 0 rgba(255,255,255,.65),0 12px 42px rgba(49,92,59,.25)}
+.card-equiv{position:relative;margin-top:22px}
+/* 美化：胶囊用白→浅绿纵向渐变造体积（导出时阴影被剥离，靠渐变保立体感） */
+.card-equiv span{display:inline-block;font-size:23px;font-weight:600;color:#315C3B;background:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(201,228,197,.72) 100%);border:1px solid rgba(143,191,136,.8);padding:9px 18px;border-radius:99px;box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 8px 22px -12px rgba(49,92,59,.35)}
+.card-tier{margin-top:20px}
+/* 美化：等级徽章由纯色块改为同色系斜向渐变，导出图同样有光泽 */
+.card-tier span{display:inline-block;font-size:25px;font-weight:800;letter-spacing:1px;color:#F8FAF6;background:linear-gradient(160deg,#3D6E48 0%,#315C3B 52%,#274C30 100%);padding:10px 22px;border-radius:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 12px 30px -10px rgba(49,92,59,.5)}
+.card-copy-wrap{margin-top:26px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.45));border:1px solid #DCE8D9;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 14px 34px -18px rgba(32,59,41,.25)}
+.card-copy{font-size:26.5px;line-height:1.55;color:#203B29}
+/* 美化：分割线改为中心收束的对称渐变，给页脚一个视觉锚点 */
+.card-divider{margin-top:auto;height:1px;background:linear-gradient(90deg,transparent,rgba(143,191,136,.55) 22%,rgba(49,92,59,.3) 50%,rgba(143,191,136,.55) 78%,transparent)}
+/* 推荐链接色带（雇主四轮反馈：从页脚小字升级为醒目色带，导出图同款） */
+/* 美化：三段深浅绿渐变 + 右上柔光，全部由背景层绘制，导出不丢 */
+/* 复核修正：原顶部白色高光（rgba(255,255,255,.14)）把标签处背景提亮到约 #56805F，标签色 #C9E4C5 只剩约 3.31:1、不过 AA；已去掉高光层，标签背景回到 #3A6B45，比值约 4.57:1，过 AA。链接用纯白 #fff（约 6.23:1）。 */
+.card-ref{margin-top:20px;background:radial-gradient(90% 160% at 100% 0%,rgba(143,191,136,.26) 0%,transparent 60%),linear-gradient(135deg,#3A6B45 0%,#315C3B 48%,#264A2F 100%);border-radius:16px;padding:15px 20px 13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 14px 34px -14px rgba(49,92,59,.55)}
+.card-ref-label{display:block;font-size:16.5px;font-weight:700;letter-spacing:3px;color:#C9E4C5}
+.card-ref-url{display:block;margin-top:4px;font-size:19px;font-weight:800;color:#ffffff;word-break:break-all;line-height:1.35}
+/* 带推荐色带时的紧凑间距（无色带时版式与原版完全一致） */
+.card.has-ref .card-inner{padding-top:36px}
+.card.has-ref .card-handle{margin-top:38px}
+.card.has-ref .card-stage{padding:20px 0 16px}
+.card.has-ref .card-equiv{margin-top:14px}
+.card.has-ref .card-tier{margin-top:14px}
+.card.has-ref .card-copy-wrap{margin-top:20px;padding:14px 22px}
+.card.has-ref .card-ref{padding:12px 20px 10px}
+.card-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:26px}
+.wm-name{font-size:19px;font-weight:700;letter-spacing:1px;color:#203B29}
+.wm-link{font-size:16.5px;font-weight:600;color:#315C3B;margin-top:5px}
+/* 复核修正：半透明色对比度 3.88:1 不过 AA，改回主题实色 #536358——卡脚左区径向绿叠加处实测约 4.78:1，仍过 AA（平底 #F8FAF6 上为 6.07:1） */
+.wm-note{font-size:14.5px;color:#536358;margin-top:5px}
+.card-qr{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#315C3B,#8FBF88) border-box;border:2px solid transparent;border-radius:16px;padding:7px;width:108px;height:108px;box-shadow:0 8px 26px -8px rgba(32,59,41,.3),0 0 30px -12px rgba(143,191,136,.6)}
+.card-qr img,.card-qr canvas{width:92px;height:92px;display:block}
+.cta-save{max-width:430px;margin:22px auto 0}
+/* 美化：触达高度补足 44px，并补齐悬停/按下/键盘聚焦态 */
+.quiet-link{display:block;margin:14px auto 0;min-height:44px;background:none;border:none;color:var(--dim);font-size:14.5px;cursor:pointer;font-family:inherit;padding:6px 14px;border-radius:12px;transition:color .2s ease,background .2s ease,box-shadow .2s ease}
+.quiet-link:hover{color:#315C3B;background:rgba(201,228,197,.45)}
+.quiet-link:active{color:#203B29;background:rgba(201,228,197,.7)}
+.quiet-link:focus-visible{color:#315C3B;box-shadow:0 0 0 3px rgba(143,191,136,.55)}
+
+/* ===== M1 新增：文字型大标题（原型名 / 表态选项，替代数字大字） ===== */
+.card-big-text{font-size:92px;line-height:1.16;letter-spacing:0;white-space:normal;word-break:break-word}
+
+/* ===== M1 新增：卡片扩展区（特质条 / 票数条），渲染器按结果注入 ===== */
+.card-extra{margin-top:22px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.45));border:1px solid #DCE8D9;border-radius:18px;padding:18px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 14px 34px -18px rgba(32,59,41,.25)}
+.trait-row{display:flex;align-items:center;gap:14px;padding:7px 0}
+.trait-row + .trait-row{border-top:1px solid #DCE8D9}
+.trait-label{flex:none;width:86px;font-size:21px;font-weight:700;color:#203B29}
+/* 美化：轨道上深下浅做凹槽，填充叠一层顶部高光，导出同样立体 */
+.trait-track{flex:1;height:12px;border-radius:99px;background:linear-gradient(180deg,#D3E3CF 0%,#E4EFE1 100%);overflow:hidden}
+.trait-fill{height:100%;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 60%),linear-gradient(92deg,#315C3B,#8FBF88);box-shadow:0 0 12px rgba(143,191,136,.5)}
+.trait-val{flex:none;width:64px;text-align:right;font-size:21px;font-weight:800;font-variant-numeric:tabular-nums;color:#315C3B}
+.bar-row{padding:8px 0}
+.bar-row + .bar-row{border-top:1px solid #DCE8D9}
+.bar-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:21px}
+.bar-name{font-weight:700;color:#203B29}
+.bar-name .mine-tag{font-size:14px;font-weight:800;color:#203B29;background:#C9E4C5;border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:2px}
+.bar-num{font-weight:800;font-variant-numeric:tabular-nums;color:#536358;white-space:nowrap}
+.bar-track{margin-top:8px;height:14px;border-radius:99px;background:linear-gradient(180deg,#D3E3CF 0%,#E4EFE1 100%);overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;background:rgba(83,99,88,.3)}
+.bar-row.mine .bar-fill{background:linear-gradient(180deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,0) 60%),linear-gradient(92deg,#315C3B,#8FBF88);box-shadow:0 0 14px rgba(143,191,136,.55)}
+/* 带扩展区时与带色带时共用紧凑间距，避免内容挤出卡外 */
+.card.has-extra .card-inner{padding-top:36px}
+.card.has-extra .card-handle{margin-top:34px}
+.card.has-extra .card-stage{padding:18px 0 14px}
+.card.has-extra .card-equiv{margin-top:14px}
+.card.has-extra .card-tier{margin-top:14px}
+.card.has-extra .card-extra{margin-top:16px;padding:12px 22px}
+.card.has-extra .card-copy-wrap{margin-top:16px;padding:14px 22px}
+/* 二维码生成失败时的可见报错（有推荐人且链接编不进二维码时亮起，导出同时被拦截） */
+.card-qr-error{margin:10px 18px 0;padding:8px 12px;border-radius:10px;background:rgba(194,51,75,.08);border:1px solid rgba(194,51,75,.5);color:#a12538;font-size:13px;line-height:1.5;text-align:center}
+
+/* M1 geometry budget: preserve the 108px QR/footer and reserve room for
+   wrapped titles, four traits, copy and a full referral URL inside 960px. */
+.card-inner{padding:30px 40px 30px}
+.card-top{line-height:1.2}
+.card-handle{margin-top:24px;line-height:1.2}
+.card-stage{margin-top:14px;padding:14px 0 10px}
+.card-equiv{margin-top:12px}
+.card-tier{margin-top:12px}
+.card-copy-wrap{margin-top:14px;padding:12px 18px}
+.card-copy{font-size:22px;line-height:1.3}
+.card-bottom{margin-top:16px;flex-shrink:0}
+.card-divider{flex-shrink:0}
+.card-ref{margin-top:14px}
+/* fitBig supplies an inline size; cap text titles independently of its
+   width-only sizing so multi-line titles have a bounded vertical budget. */
+.card-big-text{line-height:1.15}
+.card.has-ref .card-big-text,.card.has-extra .card-big-text{font-size:56px!important}
+.card.has-ref .card-inner,.card.has-extra .card-inner{padding-top:30px}
+.card.has-ref .card-handle,.card.has-extra .card-handle{margin-top:20px}
+.card.has-ref .card-stage,.card.has-extra .card-stage{padding:4px 0 2px}
+.card.has-ref .card-equiv,.card.has-extra .card-equiv,
+.card.has-ref .card-tier,.card.has-extra .card-tier{margin-top:10px}
+.card.has-ref .card-copy-wrap,.card.has-extra .card-copy-wrap{margin-top:12px;padding:10px 18px}
+.card.has-extra .card-extra{margin-top:12px;padding:8px 18px}
+.trait-row{padding:5px 0;line-height:1.2}
+.trait-label,.trait-val{font-size:19px}
+.bar-row{padding:6px 0}
+.bar-head{font-size:19px;line-height:1.2}
+.bar-track{margin-top:6px}
+/* Clip decorative overflow without changing the original glow geometry. */
+.card-glows{position:absolute;inset:0;overflow:hidden;pointer-events:none}

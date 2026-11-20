@@ -1,0 +1,1 @@
+{"$id":"pack-blocklist.schema.json","additionalProperties":false,"properties":{"tool":{"const":"fake-ai"},"words":{"items":{"minLength":1,"type":"string"},"type":"array"}},"required":["tool","words"],"type":"object"}

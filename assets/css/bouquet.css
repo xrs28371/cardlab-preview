@@ -1,0 +1,35 @@
+#view-tool-bouquet{color:var(--txt);overflow-wrap:anywhere}
+#bouquet-title{font-size:32px;margin:24px 0 12px;line-height:1.2;letter-spacing:-0.5px}
+#bouquet-desc,#bouquet-status{margin:16px 0;color:var(--dim);line-height:1.6}
+#bouquet-body{margin:24px 0}
+#bouquet-body label{display:block;margin:16px 0;color:var(--dim)}
+#bouquet-body input,#bouquet-body textarea,#bouquet-body select{display:block;width:100%;min-width:0;padding:12px 14px;margin-top:8px;font:inherit;color:var(--txt);background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:inset 0 1px 2px rgba(32,59,41,.06);transition:border-color .2s ease,box-shadow .2s ease}
+#bouquet-body input:hover,#bouquet-body textarea:hover,#bouquet-body select:hover{border-color:#8FBF88}
+#bouquet-body input:focus-visible,#bouquet-body textarea:focus-visible,#bouquet-body select:focus-visible{border-color:#8FBF88;box-shadow:inset 0 1px 2px rgba(32,59,41,.06),0 0 0 4px rgba(143,191,136,.28)}
+#bouquet-body textarea{min-height:100px;resize:vertical;line-height:1.6}
+.bouquet-button{font:inherit;font-weight:700;letter-spacing:.5px;color:var(--bg);background:linear-gradient(180deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 55%),linear-gradient(160deg,#3A6B45 0%,var(--vio) 55%,#2A4F33 100%);border:1px solid #2A4F33;padding:12px 18px;min-height:48px;border-radius:12px;cursor:pointer;margin:8px 8px 8px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 1px 2px rgba(32,59,41,.18),0 10px 22px -12px rgba(49,92,59,.6);transition:border-color .2s ease,box-shadow .2s ease,transform .12s ease}
+.bouquet-button:hover{border-color:#8FBF88;box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 2px 4px rgba(32,59,41,.2),0 14px 28px -12px rgba(49,92,59,.65)}
+.bouquet-button:active{transform:translateY(1px);box-shadow:inset 0 2px 4px rgba(32,59,41,.3)}
+.bouquet-button:focus-visible{border-color:#8FBF88;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 0 0 4px rgba(143,191,136,.45)}
+.bouquet-button:disabled{opacity:.6;cursor:default;border-color:#2A4F33;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);transform:none}
+.bouquet-art{width:min(100%,360px);margin:0 auto}
+.bouquet-art svg{display:block;width:100%;height:auto}
+.bouquet-counter{display:block;text-align:right;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:.3px}
+.bouquet-stage{position:relative;overflow:hidden}
+.bouquet-keepsake{text-align:center;border-bottom:1px solid var(--line);padding:16px 0 28px}
+.bouquet-keepsake h2{font-size:26px}
+.bouquet-keepsake blockquote{font-size:22px;line-height:1.6;white-space:pre-wrap;margin:16px 0}
+.bouquet-share,.bouquet-cta{display:block;color:var(--vio);overflow-wrap:anywhere;margin:20px 0;padding:10px 0;min-height:44px;font-weight:600;transition:color .2s ease}
+.bouquet-share:hover,.bouquet-cta:hover{color:#203B29}
+.bouquet-cta{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(248,250,246,.94) 0%,var(--bg) 45%);padding:16px 0;border-top:1px solid var(--line);box-shadow:0 -12px 24px -18px rgba(32,59,41,.28)}
+.bouquet-wrap{position:absolute;inset:0}
+.bouquet-paper{position:absolute;top:0;bottom:0;width:51%;background:#EAF4E8;border:1px solid #C9E4C5;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.bouquet-paper.left{left:0;transform-origin:left bottom;animation:bouquet-left 2.6s forwards;background:linear-gradient(90deg,#F3F8F1 0%,#EAF4E8 60%,#DCEBD8 100%)}
+.bouquet-paper.right{right:0;transform-origin:right bottom;animation:bouquet-right 2.6s forwards;background:linear-gradient(270deg,#F3F8F1 0%,#EAF4E8 60%,#DCEBD8 100%)}
+.bouquet-ribbon{position:absolute;top:45%;left:45%;color:#315C3B;font-size:52px;text-shadow:0 1px 0 rgba(255,255,255,.6),0 8px 18px rgba(49,92,59,.28);animation:bouquet-ribbon 2.6s forwards}
+.bouquet-opening blockquote{animation:bouquet-note 2.6s forwards}
+.card-illustration{display:block;width:100%;height:auto}
+.card:has(.card-illustration) .card-copy{white-space:normal;overflow-wrap:anywhere}
+.card:has(.card-illustration) .card-extra{padding:0;background:none}
+.card:has(.card-illustration) .card-value{display:none}
+@keyframes bouquet-left{0%,20%{transform:rotate(0)}100%{transform:rotate(-100deg);opacity:0}}@keyframes bouquet-right{0%,20%{transform:rotate(0)}100%{transform:rotate(100deg);opacity:0}}@keyframes bouquet-ribbon{0%,15%{transform:scale(1)}50%,100%{transform:scale(2) translateY(80px);opacity:0}}@keyframes bouquet-note{0%,65%{opacity:0}100%{opacity:1}}@media(prefers-reduced-motion:reduce){.bouquet-paper,.bouquet-ribbon,.bouquet-opening blockquote{animation-duration:.01s}.bouquet-button,.bouquet-share,.bouquet-cta,#bouquet-body input,#bouquet-body textarea,#bouquet-body select{transition:none}}

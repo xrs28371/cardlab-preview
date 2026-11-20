@@ -1,0 +1,101 @@
+{
+  "site": {
+    "name": "卡片工场",
+    "nameEn": "CARDLAB",
+    "slogan": "只生产值得截图发群的卡片",
+    "trustLine": "不登录 · 不授权 · 不存你的信息"
+  },
+  "tools": [
+    {
+      "batch": "首发",
+      "cta": "开始估值",
+      "desc": "输入一个用户名，算出它值多少杯咖啡",
+      "fineprint": "估值公式纯属虚构，图一乐。",
+      "id": "x-value",
+      "inputPlaceholder": "输入用户名",
+      "name": "X 价值计算器",
+      "no": "01",
+      "pack": "config/packs/valuation.json",
+      "status": "live",
+      "template": "x-value",
+      "trustLine": "不登录 · 不授权 · 不存你的用户名",
+      "engine": "assets/js/engines/x-value.js",
+      "view": "single"
+    },
+    {
+      "batch": "首发",
+      "cta": "开始测试",
+      "desc": "10 道二选一，测出你的职业原型",
+      "fineprint": "纯属娱乐，别当真。",
+      "id": "career-test",
+      "name": "职业人格调侃测试",
+      "no": "02",
+      "pack": "config/packs/career-test.json",
+      "status": "live",
+      "template": "career-test",
+      "trustLine": "不登录 · 不授权 · 不存你的答案",
+      "engine": "assets/js/engines/career-test.js",
+      "view": "quiz"
+    },
+    {
+      "batch": "首发",
+      "cta": "我要表态",
+      "desc": "热点来了，点一下站队出卡",
+      "fineprint": "本投票仅代表网友观点，仅供娱乐。",
+      "id": "stance",
+      "name": "吃瓜表态器",
+      "no": "03",
+      "pack": "config/packs/stance.json",
+      "status": "live",
+      "template": "stance",
+      "trustLine": "不登录 · 不授权 · 点击即投",
+      "engine": "assets/js/engines/stance.js",
+      "view": "stance"
+    },
+    {
+      "batch": "第二波",
+      "desc": "群里吵不定的事，一票定生死",
+      "id": "vote",
+      "name": "群聊投票终结器",
+      "no": "04",
+      "pack": "config/packs/vote.json",
+      "status": "live",
+      "template": "vote",
+      "engine": "assets/js/engines/vote.js",
+      "view": "vote",
+      "cta": "创建投票",
+      "trustLine": "不登录 · 每台设备投一票",
+      "fineprint": "实时票数可能存在延迟。"
+    },
+    {
+      "batch": "第二波",
+      "desc": "选一束花，把心意送给想念的人",
+      "id": "bouquet",
+      "name": "数字花束",
+      "no": "05",
+      "pack": "config/packs/bouquet.json",
+      "status": "live",
+      "template": "bouquet",
+      "engine": "assets/js/engines/bouquet.js",
+      "view": "bouquet",
+      "cta": "创建花束",
+      "trustLine": "无需登录",
+      "fineprint": "持有链接的人均可阅读昵称与留言。"
+    },
+    {
+      "batch": "第二波",
+      "desc": "真人限时答题，看看能有多像机器人",
+      "fineprint": "规则调侃，仅供娱乐；不代表 AI 检测结果。",
+      "id": "fakeai",
+      "name": "真人假装 AI",
+      "no": "06",
+      "pack": "config/packs/fakeai.json",
+      "status": "live",
+      "template": "fakeai",
+      "trustLine": "纯客户端 · 不上传答案",
+      "engine": "assets/js/engines/fakeai.js",
+      "view": "fakeai",
+      "cta": "开始伪装"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+ "analysisMs": 1500,
+ "analysisTexts": [
+  "Pretending to connect to the X database…",
+  "Digging through your old posts…",
+  "Counting the lurkers…",
+  "Calculating your worth…"
+ ],
+ "card": {
+  "label": "ESTIMATED WORTH",
+  "note": "Made-up numbers · Just for fun",
+  "watermarkName": "CardLab CARDLAB"
+ },
+ "coffeePrice": 5,
+ "copies": {
+  "high": [
+   "One post from you earns what takes most people half a year.",
+   "All that lurking in group chats — turns out you were quietly building an empire.",
+   "Screenshot this and send it to your clients. They'll get the picture.",
+   "Brands walk past you and feel out of their league."
+  ],
+  "low": [
+   "The most valuable thing on your account is what's left of your sense of humor.",
+   "You're doing charity work for the platform — free engagement, every single day.",
+   "Net worth: pocket change. Opinions on world affairs: priceless.",
+   "Not even a cyber refugee — just a passerby with a front-row seat."
+  ],
+  "mid": [
+   "Decent money, but you wouldn't tell your family. The awkward middle.",
+   "People actually reply to you in group chats now. That's clout.",
+   "Not quite financial freedom, but a large coffee with an extra shot is no longer a big decision.",
+   "This is the kind of net worth that makes your hand shake before sending a big gift."
+  ]
+ },
+ "currency": "$",
+ "equivUnit": "cups of coffee",
+ "exponent": 0.7,
+ "formulaNote": "The formula is completely made up; the same username always gets the same result",
+ "max": 9800000,
+ "min": 800,
+ "tiers": [
+  {
+   "id": "high",
+   "label": "Cyber Whale",
+   "min": 1000000
+  },
+  {
+   "id": "mid",
+   "label": "Group Chat MVP",
+   "min": 60000
+  },
+  {
+   "id": "low",
+   "label": "Cyber Passerby",
+   "min": 0
+  }
+ ],
+ "tool": "x-value"
+}

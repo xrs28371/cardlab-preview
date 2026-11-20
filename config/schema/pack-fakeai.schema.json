@@ -1,0 +1,192 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool",
+    "questionsPack",
+    "markersPack",
+    "blocklistPack",
+    "ui",
+    "card"
+  ],
+  "properties": {
+    "tool": {
+      "const": "fakeai"
+    },
+    "questionsPack": {
+      "const": "config/fakeai-questions.json"
+    },
+    "markersPack": {
+      "const": "config/fakeai-markers.json"
+    },
+    "blocklistPack": {
+      "const": "config/fakeai-blocklist.json"
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intro",
+        "start",
+        "submit",
+        "answer",
+        "next",
+        "export",
+        "report",
+        "reported",
+        "reportError",
+        "blocked",
+        "invalid",
+        "loading",
+        "error",
+        "retry",
+        "warning",
+        "high",
+        "mid",
+        "low",
+        "timeout",
+        "breakdown",
+        "timedOut",
+        "elapsed",
+        "score",
+        "empty",
+        "question",
+        "reportTitle",
+        "note"
+      ],
+      "properties": {
+        "intro": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "type": "string",
+          "minLength": 1
+        },
+        "submit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next": {
+          "type": "string",
+          "minLength": 1
+        },
+        "export": {
+          "type": "string",
+          "minLength": 1
+        },
+        "report": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reported": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reportError": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocked": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invalid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "loading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "warning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "high": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "low": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timeout": {
+          "type": "string",
+          "minLength": 1
+        },
+        "breakdown": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timedOut": {
+          "type": "string",
+          "minLength": 1
+        },
+        "elapsed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "score": {
+          "type": "string",
+          "minLength": 1
+        },
+        "empty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reportTitle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "watermarkName",
+        "note"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "watermarkName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

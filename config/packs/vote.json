@@ -1,0 +1,34 @@
+{
+  "tool": "vote",
+  "ui": {
+    "question": "问题（1–80 字）",
+    "option": "选项",
+    "add": "添加选项",
+    "remove": "删除",
+    "create": "创建投票",
+    "share": "甩回群聊",
+    "copy": "复制",
+    "copied": "已复制",
+    "vote": "投票",
+    "export": "生成结果卡",
+    "close": "关闭投票",
+    "closed": "投票已关闭",
+    "voted": "你已投过票",
+    "loading": "加载中…",
+    "error": "无法连接投票服务，请稍后重试。",
+    "invalid": "请填写 1–80 字问题及 2–6 个选项，每项 1–30 字。",
+    "retry": "重试",
+    "total": "票",
+    "result": "群聊决定",
+    "empty": "还没有票",
+    "done": "群聊已经做出选择。",
+    "privacy": "使用随机设备标识防止重复投票。",
+    "notFound": "该投票不存在或链接无效",
+    "forbidden": "无权关闭该投票"
+  },
+  "card": {
+    "label": "群聊决定",
+    "watermarkName": "CARDLAB",
+    "note": "实时票数可能存在延迟。"
+  }
+}

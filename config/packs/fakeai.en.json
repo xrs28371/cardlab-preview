@@ -1,0 +1,40 @@
+{
+  "tool": "fakeai",
+  "questionsPack": "config/fakeai-questions.json",
+  "markersPack": "config/fakeai-markers.json",
+  "blocklistPack": "config/fakeai-blocklist.json",
+  "ui": {
+    "intro": "You have 60 seconds to pretend to be AI. Answer the prompt without giving your humanity away.",
+    "start": "Start pretending",
+    "submit": "Judge my answer",
+    "answer": "Your AI-style answer",
+    "next": "Next prompt",
+    "export": "Export failure report",
+    "report": "Report anonymously",
+    "reported": "Report sent.",
+    "reportError": "Report could not be sent. Please retry.",
+    "blocked": "Please rephrase your answer kindly before submitting.",
+    "invalid": "Enter 1–300 characters (Unicode code points).",
+    "loading": "Preparing your test sheet…",
+    "error": "The prompts could not load. Please retry.",
+    "retry": "Retry",
+    "warning": "Abusive or sensitive language is blocked. Answers stay on this page and disappear on refresh.",
+    "high": "Suspiciously AI-like",
+    "mid": "Half human, half machine",
+    "low": "Caught: definitely human",
+    "timeout": "Disguise failed: timed out",
+    "breakdown": "Base 40 + AI markers {ai}×20 − human markers {human}×15 = {score} (clamped to 0–100)",
+    "timedOut": "60 seconds elapsed: automatic failure, score 0. Unsubmitted drafts stay off the report.",
+    "elapsed": "Time taken",
+    "score": "AI flavour score",
+    "empty": "(No submitted answer)",
+    "question": "This round’s prompt",
+    "reportTitle": "AI failure report",
+    "note": "A rule-based joke for fun, not an AI detector."
+  },
+  "card": {
+    "label": "AI failure report",
+    "watermarkName": "CARDLAB",
+    "note": "A rule-based joke for fun, not an AI detector."
+  }
+}

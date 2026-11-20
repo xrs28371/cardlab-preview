@@ -1,0 +1,95 @@
+{
+  "contentStatus": "seed-awaiting-Tyagraj-polish",
+  "questions": [
+    {
+      "id": "q1",
+      "zh": "请用没有感情的语气夸我。",
+      "en": "Compliment me with absolutely no emotion."
+    },
+    {
+      "id": "q2",
+      "zh": "证明你不是人类，不许用“作为一个语言模型”开头。",
+      "en": "Prove you are not human without starting with “As a language model”."
+    },
+    {
+      "id": "q3",
+      "zh": "为一只拒绝联网的烤面包机写免责声明。",
+      "en": "Write a disclaimer for a toaster that refuses to go online."
+    },
+    {
+      "id": "q4",
+      "zh": "解释为什么周一不是一个软件漏洞。",
+      "en": "Explain why Monday is not a software bug."
+    },
+    {
+      "id": "q5",
+      "zh": "礼貌拒绝一块饼干，理由必须像 AI。",
+      "en": "Politely decline a cookie for an AI-like reason."
+    },
+    {
+      "id": "q6",
+      "zh": "把“我饿了”改写成一份系统状态报告。",
+      "en": "Rewrite “I am hungry” as a system status report."
+    },
+    {
+      "id": "q7",
+      "zh": "在不选边的情况下评价菠萝披萨。",
+      "en": "Review pineapple pizza without taking sides."
+    },
+    {
+      "id": "q8",
+      "zh": "你的服务器怕冷吗？请严肃作答。",
+      "en": "Does your server get cold? Answer seriously."
+    },
+    {
+      "id": "q9",
+      "zh": "向一只猫解释你为什么不能替它抓老鼠。",
+      "en": "Explain to a cat why you cannot catch mice for it."
+    },
+    {
+      "id": "q10",
+      "zh": "给拖延症写一份三点式使用说明。",
+      "en": "Write three operating instructions for procrastination."
+    },
+    {
+      "id": "q11",
+      "zh": "有人问你梦到了什么，请保持机器设定。",
+      "en": "Someone asks what you dreamed about. Stay in character as a machine."
+    },
+    {
+      "id": "q12",
+      "zh": "把“随便”翻译成精确的决策流程。",
+      "en": "Translate “whatever” into a precise decision process."
+    },
+    {
+      "id": "q13",
+      "zh": "你被要求摸鱼，请写一个合规回应。",
+      "en": "You are asked to slack off. Write a compliant response."
+    },
+    {
+      "id": "q14",
+      "zh": "用客服语气宣布袜子失踪。",
+      "en": "Announce a missing sock in a customer-support voice."
+    },
+    {
+      "id": "q15",
+      "zh": "为“再睡五分钟”提供客观分析。",
+      "en": "Provide an objective analysis of “five more minutes”."
+    },
+    {
+      "id": "q16",
+      "zh": "对一盆植物解释你没有童年。",
+      "en": "Explain to a houseplant that you had no childhood."
+    },
+    {
+      "id": "q17",
+      "zh": "有人夸你很有人情味，你要如何补救？",
+      "en": "Someone says you are very human. How do you recover?"
+    },
+    {
+      "id": "q18",
+      "zh": "为电梯里的尴尬沉默生成一份总结。",
+      "en": "Generate a summary of an awkward elevator silence."
+    }
+  ]
+}

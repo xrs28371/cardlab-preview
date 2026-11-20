@@ -1,0 +1,40 @@
+{
+  "tool": "fakeai",
+  "questionsPack": "config/fakeai-questions.json",
+  "markersPack": "config/fakeai-markers.json",
+  "blocklistPack": "config/fakeai-blocklist.json",
+  "ui": {
+    "intro": "你有 60 秒假装 AI。回答问题，别让真人味露馅。",
+    "start": "开始伪装",
+    "submit": "提交判定",
+    "answer": "你的 AI 式回答",
+    "next": "再来一题",
+    "export": "导出失败报告卡",
+    "report": "匿名举报",
+    "reported": "举报已发送。",
+    "reportError": "举报未发送，请稍后重试。",
+    "blocked": "请换一种友善的表达再提交。",
+    "invalid": "请输入 1–300 字（按 Unicode 码点计）。",
+    "loading": "正在准备测试单…",
+    "error": "题库暂时不可用，请重试。",
+    "retry": "重试",
+    "warning": "请勿输入辱骂或敏感内容，违规内容会被拦截。答案仅留在此页面；刷新即清空。",
+    "high": "可疑地像 AI",
+    "mid": "半人半机",
+    "low": "当场露馅：你是真人",
+    "timeout": "伪装失败：响应超时",
+    "breakdown": "基础 40 ＋ AI 标记 {ai}×20 − 真人标记 {human}×15 ＝ {score}（范围 0–100）",
+    "timedOut": "60 秒已到，本轮直接失败、得分 0。未提交的草稿不进入报告。",
+    "elapsed": "用时",
+    "score": "AI 味得分",
+    "empty": "（无已提交答案）",
+    "question": "本轮题目",
+    "reportTitle": "AI 失败报告",
+    "note": "规则调侃，仅供娱乐；不代表 AI 检测结果。"
+  },
+  "card": {
+    "label": "AI 失败报告",
+    "watermarkName": "CARDLAB",
+    "note": "规则调侃，仅供娱乐；不代表 AI 检测结果。"
+  }
+}

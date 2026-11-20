@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool",
+    "ui",
+    "card"
+  ],
+  "properties": {
+    "tool": {
+      "const": "vote"
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "option",
+        "add",
+        "remove",
+        "create",
+        "share",
+        "copy",
+        "copied",
+        "vote",
+        "export",
+        "close",
+        "closed",
+        "voted",
+        "loading",
+        "error",
+        "invalid",
+        "retry",
+        "total",
+        "result",
+        "empty",
+        "done",
+        "privacy",
+        "notFound",
+        "forbidden"
+      ],
+      "properties": {
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "option": {
+          "type": "string",
+          "minLength": 1
+        },
+        "add": {
+          "type": "string",
+          "minLength": 1
+        },
+        "remove": {
+          "type": "string",
+          "minLength": 1
+        },
+        "create": {
+          "type": "string",
+          "minLength": 1
+        },
+        "share": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copied": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "export": {
+          "type": "string",
+          "minLength": 1
+        },
+        "close": {
+          "type": "string",
+          "minLength": 1
+        },
+        "closed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "voted": {
+          "type": "string",
+          "minLength": 1
+        },
+        "loading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invalid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "total": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "type": "string",
+          "minLength": 1
+        },
+        "empty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "done": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notFound": {
+          "type": "string",
+          "minLength": 1
+        },
+        "forbidden": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "watermarkName",
+        "note"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "watermarkName": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
